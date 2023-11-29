@@ -153,8 +153,12 @@ module Sass
     # @param arr [Array]
     # @return [Array] The enumerable with strings merged
     def merge_adjacent_strings(arr)
+
+      return [] if arr.nil?
+
       # Optimize for the common case of one element
       return arr if arr.size < 2
+
       arr.inject([]) do |a, e|
         if e.is_a?(String)
           if a.last.is_a?(String)
